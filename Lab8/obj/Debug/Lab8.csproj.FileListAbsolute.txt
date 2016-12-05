@@ -1,1 +1,9 @@
 Y:\Boston University\Senior\Software Design\Lab8\Lab8\bin\Debug\Lab8.exe.config
+Y:\Boston University\Senior\Software Design\Lab8\Lab8\bin\Debug\Lab8.exe
+Y:\Boston University\Senior\Software Design\Lab8\Lab8\bin\Debug\Lab8.pdb
+Y:\Boston University\Senior\Software Design\Lab8\Lab8\obj\Debug\Lab8.csprojResolveAssemblyReference.cache
+Y:\Boston University\Senior\Software Design\Lab8\Lab8\obj\Debug\Lab8.Form1.resources
+Y:\Boston University\Senior\Software Design\Lab8\Lab8\obj\Debug\Lab8.Properties.Resources.resources
+Y:\Boston University\Senior\Software Design\Lab8\Lab8\obj\Debug\Lab8.csproj.GenerateResource.Cache
+Y:\Boston University\Senior\Software Design\Lab8\Lab8\obj\Debug\Lab8.exe
+Y:\Boston University\Senior\Software Design\Lab8\Lab8\obj\Debug\Lab8.pdb
