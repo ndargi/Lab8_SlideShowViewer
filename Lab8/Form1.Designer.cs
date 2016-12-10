@@ -33,13 +33,14 @@
             this.openCollectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveCollectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.filelistview = new System.Windows.Forms.ListView();
             this.File_Group = new System.Windows.Forms.GroupBox();
-            this.Add_Button = new System.Windows.Forms.Button();
             this.Delete_Button = new System.Windows.Forms.Button();
+            this.Add_Button = new System.Windows.Forms.Button();
             this.Show_Button = new System.Windows.Forms.Button();
             this.Interval_Label = new System.Windows.Forms.Label();
             this.Interval_Text = new System.Windows.Forms.TextBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.File_Group.SuspendLayout();
             this.SuspendLayout();
@@ -83,13 +84,13 @@
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(288, 38);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
-            // listView1
+            // filelistview
             // 
-            this.listView1.Location = new System.Drawing.Point(56, 76);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1063, 147);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.filelistview.Location = new System.Drawing.Point(56, 76);
+            this.filelistview.Name = "filelistview";
+            this.filelistview.Size = new System.Drawing.Size(1063, 147);
+            this.filelistview.TabIndex = 1;
+            this.filelistview.UseCompatibleStateImageBehavior = false;
             // 
             // File_Group
             // 
@@ -102,15 +103,6 @@
             this.File_Group.TabStop = false;
             this.File_Group.Text = "Files";
             // 
-            // Add_Button
-            // 
-            this.Add_Button.Location = new System.Drawing.Point(51, 57);
-            this.Add_Button.Name = "Add_Button";
-            this.Add_Button.Size = new System.Drawing.Size(129, 53);
-            this.Add_Button.TabIndex = 0;
-            this.Add_Button.Text = "Add";
-            this.Add_Button.UseVisualStyleBackColor = true;
-            // 
             // Delete_Button
             // 
             this.Delete_Button.Location = new System.Drawing.Point(260, 57);
@@ -119,6 +111,16 @@
             this.Delete_Button.TabIndex = 1;
             this.Delete_Button.Text = "Delete";
             this.Delete_Button.UseVisualStyleBackColor = true;
+            // 
+            // Add_Button
+            // 
+            this.Add_Button.Location = new System.Drawing.Point(51, 57);
+            this.Add_Button.Name = "Add_Button";
+            this.Add_Button.Size = new System.Drawing.Size(129, 53);
+            this.Add_Button.TabIndex = 0;
+            this.Add_Button.Text = "Add";
+            this.Add_Button.UseVisualStyleBackColor = true;
+            this.Add_Button.Click += new System.EventHandler(this.Add_Button_Click);
             // 
             // Show_Button
             // 
@@ -146,6 +148,10 @@
             this.Interval_Text.TabIndex = 5;
             this.Interval_Text.Text = "5";
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -155,11 +161,11 @@
             this.Controls.Add(this.Interval_Label);
             this.Controls.Add(this.Show_Button);
             this.Controls.Add(this.File_Group);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.filelistview);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Slide Show Viewer - Nicholas Dargi";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.File_Group.ResumeLayout(false);
@@ -175,13 +181,14 @@
         private System.Windows.Forms.ToolStripMenuItem openCollectionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveCollectionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView filelistview;
         private System.Windows.Forms.GroupBox File_Group;
         private System.Windows.Forms.Button Delete_Button;
         private System.Windows.Forms.Button Add_Button;
         private System.Windows.Forms.Button Show_Button;
         private System.Windows.Forms.Label Interval_Label;
         private System.Windows.Forms.TextBox Interval_Text;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 
