@@ -36,13 +36,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(718, 428);
             this.ControlBox = false;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Viewer";
             this.ShowInTaskbar = false;
             this.Text = "Viewer";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Viewer_Paint);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Viewer_KeyDown);
             this.ResumeLayout(false);
 
         }

@@ -7,3 +7,4 @@ Y:\Boston University\Senior\Software Design\Lab8\Lab8\obj\Debug\Lab8.Properties.
 Y:\Boston University\Senior\Software Design\Lab8\Lab8\obj\Debug\Lab8.csproj.GenerateResource.Cache
 Y:\Boston University\Senior\Software Design\Lab8\Lab8\obj\Debug\Lab8.exe
 Y:\Boston University\Senior\Software Design\Lab8\Lab8\obj\Debug\Lab8.pdb
+Y:\Boston University\Senior\Software Design\Lab8\Lab8\obj\Debug\Lab8.Viewer.resources

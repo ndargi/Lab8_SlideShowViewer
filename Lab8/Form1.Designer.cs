@@ -111,6 +111,7 @@
             this.Delete_Button.TabIndex = 1;
             this.Delete_Button.Text = "Delete";
             this.Delete_Button.UseVisualStyleBackColor = true;
+            this.Delete_Button.Click += new System.EventHandler(this.Delete_Button_Click);
             // 
             // Add_Button
             // 
@@ -130,6 +131,7 @@
             this.Show_Button.TabIndex = 3;
             this.Show_Button.Text = "Show";
             this.Show_Button.UseVisualStyleBackColor = true;
+            this.Show_Button.Click += new System.EventHandler(this.Show_Button_Click);
             // 
             // Interval_Label
             // 
@@ -151,6 +153,7 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Multiselect = true;
             // 
             // Form1
             // 
