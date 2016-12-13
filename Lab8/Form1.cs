@@ -23,11 +23,12 @@ namespace Lab8
             header.Name = "col";
             header.Width = filelistview.Width - 30;
             filelistview.Columns.Add(header);
-            openFileDialog1.Filter = "*.jpg;*.gif;*.png;*.bmp | *.jpg;*.gif;*.png;*.bmp; | *.* (All Files)|*.*";
+            
         }
 
         private void Add_Button_Click(object sender, EventArgs e)
         {
+            openFileDialog1.Filter = "*.jpg;*.gif;*.png;*.bmp | *.jpg;*.gif;*.png;*.bmp; | *.* (All Files)|*.*";
             if (openFileDialog1.ShowDialog(this) == DialogResult.OK)
             {
                 foreach (String file in openFileDialog1.FileNames)
@@ -63,12 +64,30 @@ namespace Lab8
 
         private void saveCollectionToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            saveFileDialog1.Filter = " | *.pix";
+            saveFileDialog1.DefaultExt = "pix";
+            if (saveFileDialog1.ShowDialog(this) == DialogResult.OK)
+            {
+                if (filelistview.Items.Count == 0)
+                {
+                    MessageBox.Show("No File Names to Save", "Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                using (System.IO.StreamWriter savefile = new System.IO.StreamWriter(saveFileDialog1.FileName))
+                {
 
+                    for (int i = 0; i < filelistview.Items.Count; i++)
+                    {
+                        savefile.WriteLine(filelistview.Items[i].Text);
+                    }
+
+                }
+            }
         }
 
         private void openCollectionToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
+        {           
+            openFileDialog1.Filter = " | *.pix";
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
