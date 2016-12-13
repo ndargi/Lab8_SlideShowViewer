@@ -41,6 +41,7 @@
             this.Interval_Label = new System.Windows.Forms.Label();
             this.Interval_Text = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1.SuspendLayout();
             this.File_Group.SuspendLayout();
             this.SuspendLayout();
@@ -63,7 +64,7 @@
             this.saveCollectionToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 36);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 38);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // openCollectionToolStripMenuItem
@@ -71,24 +72,28 @@
             this.openCollectionToolStripMenuItem.Name = "openCollectionToolStripMenuItem";
             this.openCollectionToolStripMenuItem.Size = new System.Drawing.Size(288, 38);
             this.openCollectionToolStripMenuItem.Text = "Open Collection";
+            this.openCollectionToolStripMenuItem.Click += new System.EventHandler(this.openCollectionToolStripMenuItem_Click);
             // 
             // saveCollectionToolStripMenuItem
             // 
             this.saveCollectionToolStripMenuItem.Name = "saveCollectionToolStripMenuItem";
             this.saveCollectionToolStripMenuItem.Size = new System.Drawing.Size(288, 38);
             this.saveCollectionToolStripMenuItem.Text = "Save Collection";
+            this.saveCollectionToolStripMenuItem.Click += new System.EventHandler(this.saveCollectionToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(288, 38);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // filelistview
             // 
+            this.filelistview.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.filelistview.Location = new System.Drawing.Point(56, 76);
             this.filelistview.Name = "filelistview";
-            this.filelistview.Size = new System.Drawing.Size(1063, 147);
+            this.filelistview.Size = new System.Drawing.Size(1063, 184);
             this.filelistview.TabIndex = 1;
             this.filelistview.UseCompatibleStateImageBehavior = false;
             // 
@@ -192,6 +197,7 @@
         private System.Windows.Forms.Label Interval_Label;
         private System.Windows.Forms.TextBox Interval_Text;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 

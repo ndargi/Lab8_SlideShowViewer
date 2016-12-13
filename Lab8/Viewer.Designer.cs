@@ -28,7 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Viewer
             // 
@@ -40,6 +46,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Viewer";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Viewer";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -50,5 +57,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer timer1;
     }
 }

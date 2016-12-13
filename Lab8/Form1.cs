@@ -14,11 +14,15 @@ namespace Lab8
     {
         string filename;
         List<string> files = new List<string>();//s
-
         public Form1()
         {
             InitializeComponent();
-            filelistview.View = View.List;
+            filelistview.View = View.Details;
+            ColumnHeader header = new ColumnHeader();
+            header.Text = "";
+            header.Name = "col";
+            header.Width = filelistview.Width - 30;
+            filelistview.Columns.Add(header);
             openFileDialog1.Filter = "*.jpg;*.gif;*.png;*.bmp | *.jpg;*.gif;*.png;*.bmp; | *.* (All Files)|*.*";
         }
 
@@ -40,6 +44,7 @@ namespace Lab8
             for (int i = 0; i < filelistview.Items.Count; i++)
             {
                 files.Add(filelistview.Items[i].Text);
+
             }
                 Viewer myviewer = new Viewer(Convert.ToInt32(Interval_Text.Text), files);
             if (myviewer.ShowDialog() == DialogResult.OK)
@@ -54,6 +59,21 @@ namespace Lab8
             {
                 filelistview.Items.Remove(eachItem);
             }
+        }
+
+        private void saveCollectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void openCollectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

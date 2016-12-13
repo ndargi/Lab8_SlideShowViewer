@@ -13,32 +13,49 @@ namespace Lab8
 {
     public partial class Viewer : Form
     {
-        Timer myTimer = new Timer();
+        private int ticktoc;
+        private bool imagegood = true;
         List<string> filelist = new List<string>();
         private Bitmap MyImage;
+        private int timetowait;
         public Viewer(int time,List<string> files)
         {
             InitializeComponent();
             filelist = files;
+            timetowait = time * 1000;
             run();
         }
-        private async void run()
+        private void run()
         {
 
-            for (int i = 0; i < filelist.Count; i++)
-            {
-                MyImage = new Bitmap(filelist[i]);
-                Invalidate();
-                await Task.Delay(5000);
-            }
-            DialogResult = DialogResult.OK;
-            
+            timer1.Interval = timetowait;
+            timer1.Enabled = true;
+            ticktoc = 0;
+            MyImage = new Bitmap(filelist[ticktoc]);
+            Invalidate();
+
         }
 
         private void Viewer_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            g.DrawImage(MyImage, 0, 0);
+            if (imagegood)
+            {
+                //check if the image height or width will constrain its size
+                float restraining = Math.Min(base.Width / MyImage.Width, base.Height / MyImage.Height);
+                //Then scale the image by this factor both ways to ensure that the aspect ratio remains the same
+                float imagewidth = MyImage.Width * restraining;
+                float imageheight = MyImage.Height * restraining;
+
+                float widthoffset = (base.Width - imagewidth) / 2;
+                float heightoffset = (base.Height - imageheight) / 2;
+
+                g.DrawImage(MyImage, widthoffset, heightoffset, imagewidth, imageheight);
+            }
+            else
+            {
+                g.DrawString("Not an image File !",  new Font("Cambria", 40), Brushes.Red, 10, 10);
+            }
 
         }
 
@@ -48,6 +65,31 @@ namespace Lab8
         {
             if (e.KeyCode == Keys.Escape)
             {
+                DialogResult = DialogResult.OK;
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            ++ticktoc;
+            
+            if (ticktoc != filelist.Count)
+            {
+                try
+                {
+                    MyImage = new Bitmap(filelist[ticktoc]);
+                    imagegood = true;
+                    Invalidate();
+                }
+                catch
+                {
+                    imagegood = false;
+                    Invalidate();
+                }
+            }
+            else
+            {
+                timer1.Enabled = false;
                 DialogResult = DialogResult.OK;
             }
         }
