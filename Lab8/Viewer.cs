@@ -42,14 +42,13 @@ namespace Lab8
             if (imagegood)
             {
                 //check if the image height or width will constrain its size
-                float restraining = Math.Min(base.Width / MyImage.Width, base.Height / MyImage.Height);
+
+                float restraining = Math.Min((float)this.Width / (float)MyImage.Width, (float)this.Height / (float)MyImage.Height);
                 //Then scale the image by this factor both ways to ensure that the aspect ratio remains the same
                 float imagewidth = MyImage.Width * restraining;
                 float imageheight = MyImage.Height * restraining;
-
-                float widthoffset = (base.Width - imagewidth) / 2;
-                float heightoffset = (base.Height - imageheight) / 2;
-
+                float widthoffset = (this.Width - imagewidth) / 2;
+                float heightoffset = (this.Height - imageheight) / 2;
                 g.DrawImage(MyImage, widthoffset, heightoffset, imagewidth, imageheight);
             }
             else

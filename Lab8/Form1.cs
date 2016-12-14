@@ -31,9 +31,9 @@ namespace Lab8
             openFileDialog1.Filter = "*.jpg;*.gif;*.png;*.bmp | *.jpg;*.gif;*.png;*.bmp; | *.* (All Files)|*.*";
             if (openFileDialog1.ShowDialog(this) == DialogResult.OK)
             {
-                foreach (String file in openFileDialog1.FileNames)
+                foreach (String filename in openFileDialog1.FileNames)
                 {
-                    filename = file;
+                   
                     filelistview.Items.Add(filename);
                 }
             }
@@ -41,16 +41,30 @@ namespace Lab8
 
         private void Show_Button_Click(object sender, EventArgs e)
         {
-            files.Clear();
-            for (int i = 0; i < filelistview.Items.Count; i++)
+            if (filelistview.Items.Count == 0)
             {
-                files.Add(filelistview.Items[i].Text);
-
+                MessageBox.Show("No Images to Show", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
-                Viewer myviewer = new Viewer(Convert.ToInt32(Interval_Text.Text), files);
-            if (myviewer.ShowDialog() == DialogResult.OK)
+            int x;
+            if (int.TryParse(Interval_Text.Text, out x) && x > 0)//Check if number is positive integer
             {
+                files.Clear();
+                for (int i = 0; i < filelistview.Items.Count; i++)
+                {
+                    files.Add(filelistview.Items[i].Text);
 
+                }
+                Viewer myviewer = new Viewer(Convert.ToInt32(Interval_Text.Text), files);
+                if (myviewer.ShowDialog() == DialogResult.OK)
+                {
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please Enter an Integer Time Interval > 0", "Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
 
@@ -66,13 +80,14 @@ namespace Lab8
         {
             saveFileDialog1.Filter = " | *.pix";
             saveFileDialog1.DefaultExt = "pix";
+            if (filelistview.Items.Count == 0)
+            {
+                MessageBox.Show("No File Names to Save", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             if (saveFileDialog1.ShowDialog(this) == DialogResult.OK)
             {
-                if (filelistview.Items.Count == 0)
-                {
-                    MessageBox.Show("No File Names to Save", "Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+             
                 using (System.IO.StreamWriter savefile = new System.IO.StreamWriter(saveFileDialog1.FileName))
                 {
 
@@ -88,6 +103,22 @@ namespace Lab8
         private void openCollectionToolStripMenuItem_Click(object sender, EventArgs e)
         {           
             openFileDialog1.Filter = " | *.pix";
+            
+            if (openFileDialog1.ShowDialog(this) == DialogResult.OK)
+            {
+                files.Clear();
+                string line;
+
+                // Read the file and display it line by line.
+                System.IO.StreamReader file =
+                   new System.IO.StreamReader(openFileDialog1.FileName);
+                while ((line = file.ReadLine()) != null)
+                {
+                    filelistview.Items.Add(line);
+                }
+
+                file.Close();
+            }
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
