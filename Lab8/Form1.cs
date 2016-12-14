@@ -106,7 +106,7 @@ namespace Lab8
             
             if (openFileDialog1.ShowDialog(this) == DialogResult.OK)
             {
-                files.Clear();
+                filelistview.Items.Clear();
                 string line;
 
                 // Read the file and display it line by line.
